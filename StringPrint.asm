@@ -1,0 +1,21 @@
+.MODEL SMALL
+.STACK 100H
+.DATA           
+   m DB 'FORHAD &' 
+.CODE
+MAIN PROC
+    ;AH,1-> MEANS SINGLE INPUTT , AH,2->SINGLE CHARACTER OUTPUT , AH,9-> CHARACTER STRING OUTPUT 
+    
+    MOV AX,@DATA
+    MOV DS,AX
+    MOV AH,9
+    LEA DX,m
+    INT 21H
+  
+             
+             
+    ;EXIT
+    MOV AH,4CH
+    INT 21H
+    MAIN ENDP
+END MAIN
